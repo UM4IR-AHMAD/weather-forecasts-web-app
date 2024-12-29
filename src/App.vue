@@ -78,7 +78,7 @@ let selectedCity = ref(null);
 let forecastsData = ref(null);
 let getWeatherForecasts = (city) => {
   loading.value = true;
-  axios.get(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city.lat},${city.lon}/next5days?unitGroup=metric&key=Q9BC26YZHSB28YUXY3CWS2FSA&include=days&elements=datetime,tempmax,tempmin,temp,humidity,windspeed,description,conditions,icon`)
+  axios.get(`https://weather.visualcrossing.com/VisualCrossingWebServices/rest/services/timeline/${city.lat},${city.lon}/next5days?unitGroup=metric&key=${import.meta.env.VITE_VISUALCROSSING_API_KEY}&include=days&elements=datetime,tempmax,tempmin,temp,humidity,windspeed,description,conditions,icon`)
       .then(response => {
         console.log(response.data);
         selectedCity.value = city;

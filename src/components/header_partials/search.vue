@@ -99,7 +99,7 @@ let searchApiCall = () => {
 let top5Cities = ref(null);
 let getTop5Places = () => {
   loading.value = true;
-  axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${searchInput.value}&limit=5&appid=bd5e378503939ddaee76f12ad7a97608`)
+  axios.get(`http://api.openweathermap.org/geo/1.0/direct?q=${searchInput.value}&limit=5&appid=${import.meta.env.VITE_OPENWEATHERMAP_APP_ID}`)
       .then(response => {
         if (response.data.length < 1) {
           console.log(response.data);
